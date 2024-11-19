@@ -1,1 +1,21 @@
+media:
+  input: static/media
+  output: /media
 
+content:
+  - name: home
+    label: Home page
+    path: src/lib/site/home.json
+    type: file
+    fields:
+      - name: title
+        label: Website title
+        type: string
+      - name: description
+        label: Website description
+        type: string
+        description: Will be provused for any page with no description.
+      - name: cover
+        label: Preview image
+        type: image
+        description: Image used in the social preview on social networks (e.g. Facebook, Twitter...)
