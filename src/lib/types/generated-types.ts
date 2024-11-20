@@ -8,9 +8,20 @@ export interface HomePageContent {
   features?: any;
 }
 
+export interface BlogContent {
+  title: string;
+  content: any;
+}
+
+export interface AboutContent {
+  title?: string;
+  content?: any;
+}
+
 export interface SiteSettingsContent {
   title: string;
   description?: string;
   logo?: string;
+  menu?: any;
 }
 

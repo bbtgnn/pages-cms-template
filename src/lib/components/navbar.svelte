@@ -1,6 +1,7 @@
 <script lang="ts">
 	import AppLogo from '$lib/components/appLogo.svelte';
 	import settings from '$lib/site/settings.json';
+	import { page } from '$app/stores';
 </script>
 
 <header class="bg-white">
@@ -10,9 +11,16 @@
 			<span class="text-sm font-semibold leading-6 text-gray-900">{settings.title}</span>
 		</div>
 		<div class="flex gap-x-8">
-			<a href="/" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
-			<a href="/about" class="text-sm font-semibold leading-6 text-gray-900">About</a>
-			<a href="/docs" class="text-sm font-semibold leading-6 text-gray-900">Docs</a>
+			{#each settings.menu as item}
+				<a
+					href={item.href}
+					class="text-sm font-semibold leading-6 transition-colors"
+					class:text-gray-900={$page.url.pathname !== item.href}
+					class:text-blue-600={$page.url.pathname === item.href}
+				>
+					{item.label}
+				</a>
+			{/each}
 		</div>
 	</nav>
 </header>

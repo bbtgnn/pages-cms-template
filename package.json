@@ -48,6 +48,7 @@
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
+		"effect": "^3.10.15",
 		"marked": "^15.0.1",
 		"yaml": "^2.6.1"
 	}
