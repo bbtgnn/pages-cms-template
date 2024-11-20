@@ -3,6 +3,7 @@ media:
   output: /media
 
 content:
+  
   - name: home-page
     label: Home page
     path: src/lib/site/home.json
@@ -50,20 +51,6 @@ content:
         label: Content
         type: rich-text
 
-  - name: blog
-    label: Blog
-    path: src/lib/site/blog
-    type: content
-    fields:
-      - name: title
-        label: Title
-        type: string
-        required: true
-      - name: content
-        label: Content
-        type: rich-text
-        required: true
-
   - name: site-settings
     label: Site settings
     path: src/lib/site/settings.json
@@ -79,16 +66,3 @@ content:
       - name: logo
         label: Site logo
         type: image
-      - name: menu
-        label: Navigation Menu
-        type: object
-        list: true
-        fields:
-          - name: label
-            label: Menu Label
-            type: string
-            required: true
-          - name: href
-            label: Menu Link
-            type: string
-            required: true

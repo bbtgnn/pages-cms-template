@@ -1,23 +1,4 @@
 {
 	"title": "Pages CMS Template",
-	"description": "A good starting point for your next website",
-	"logo": "/media/go-to-web-icon-for-your-web-design-logo-infographic-ui-vector.jpg",
-	"menu": [
-		{
-			"label": "Home",
-			"href": "/"
-		},
-		{
-			"label": "About",
-			"href": "/about"
-		},
-		{
-			"label": "Resources",
-			"href": "/resources"
-		},
-		{
-			"label": "Contact",
-			"href": "/contact"
-		}
-	]
+	"logo": "/media/go-to-web-icon-for-your-web-design-logo-infographic-ui-vector.jpg"
 }
