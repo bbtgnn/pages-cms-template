@@ -7,6 +7,7 @@ interface BaseField {
     name: string;
     label: string;
     type: string;
+    required?: boolean;
 }
 
 interface StringField extends BaseField {
@@ -50,7 +51,9 @@ function generateContentTypes(): string {
         
         content.fields.forEach((field) => {
             const fieldType = getTypeForField(field);
-            output += `  ${field.name}: ${fieldType};\n`;
+            // Add optional modifier (?) if field is not required
+            const optionalModifier = field.required ? '' : '?';
+            output += `  ${field.name}${optionalModifier}: ${fieldType};\n`;
         });
 
         output += '}\n\n';
