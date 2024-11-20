@@ -5,9 +5,34 @@
   "introduction": "# A sample text that works as introduction\n\nAnd a smaller text introducing the users to the website.",
   "features": [
     {
-      "emoji": "🙃",
-      "title": "Cool feature #1",
-      "description": "Feature description"
+      "emoji": "💬",
+      "title": "Real-time Chat",
+      "description": "Instant messaging with team members across departments and locations"
+    },
+    {
+      "emoji": "📊",
+      "title": "Analytics Dashboard",
+      "description": "Track communication patterns and team engagement with detailed insights"
+    },
+    {
+      "emoji": "🤝",
+      "title": "Team Collaboration",
+      "description": "Create spaces for teams to share ideas and work together seamlessly"
+    },
+    {
+      "emoji": "🔒",
+      "title": "Secure Communication",
+      "description": "End-to-end encryption and enterprise-grade security for your data"
+    },
+    {
+      "emoji": "🔍",
+      "title": "Smart Search",
+      "description": "Find any message, file, or conversation with powerful search capabilities"
+    },
+    {
+      "emoji": "🌐",
+      "title": "Cross-platform Access",
+      "description": "Stay connected on desktop, mobile, and web browsers"
     }
   ]
 }
