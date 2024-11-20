@@ -3,22 +3,6 @@ media:
   output: /media
 
 content:
-
-  - name: site-settings
-    label: Site settings
-    path: src/lib/site/settings.json
-    type: file
-    fields:
-      - name: title
-        label: Website title
-        type: string
-        required: true
-      - name: description
-        label: Website description
-        type: string
-      - name: logo
-        label: Site logo
-        type: image
   
   - name: home-page
     label: Home page
@@ -37,3 +21,19 @@ content:
         label: Cover image
         type: image
         required: true
+
+  - name: site-settings
+    label: Site settings
+    path: src/lib/site/settings.json
+    type: file
+    fields:
+      - name: title
+        label: Website title
+        type: string
+        required: true
+      - name: description
+        label: Website description
+        type: string
+      - name: logo
+        label: Site logo
+        type: image
