@@ -53,7 +53,7 @@ content:
   - name: blog
     label: Blog
     path: src/lib/site/blog
-    type: collection
+    type: content
     fields:
       - name: title
         label: Title
