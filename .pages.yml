@@ -42,6 +42,16 @@ content:
             type: rich-text
             required: true
 
+  - name: about
+    label: About
+    path: src/lib/site/about.json
+    type: file
+    fields:
+      - name: content
+        label: Content
+        type: rich-text
+        required: true
+
   - name: site-settings
     label: Site settings
     path: src/lib/site/settings.json
