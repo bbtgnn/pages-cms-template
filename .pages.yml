@@ -3,9 +3,9 @@ media:
   output: /media
 
 content:
-  - name: home
-    label: Home page
-    path: src/lib/site/home.json
+  - name: site-settings
+    label: Site settings
+    path: src/lib/site/settings.json
     type: file
     fields:
       - name: title
@@ -14,8 +14,6 @@ content:
       - name: description
         label: Website description
         type: string
-        description: Will be provused for any page with no description.
-      - name: cover
-        label: Preview image
+      - name: logo
+        label: Site logo
         type: image
-        description: Image used in the social preview on social networks (e.g. Facebook, Twitter...)
