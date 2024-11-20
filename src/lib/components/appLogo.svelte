@@ -3,5 +3,5 @@
 </script>
 
 <a href="/">
-	<img src={Settings.logo} alt={Settings.title} class="h-8" />
+	<img src={Settings.logo} alt="{Settings.title} logo" class="h-8" />
 </a>
