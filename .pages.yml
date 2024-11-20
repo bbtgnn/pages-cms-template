@@ -9,18 +9,21 @@ content:
     path: src/lib/site/home.json
     type: file
     fields:
-      - name: title
+      - name: hero_title
         label: Homepage title
         type: string
         required: true
-      - name: description
+      - name: hero_description
         label: Homepage description
         type: string
         required: true
-      - name: cover
+      - name: hero_cover
         label: Cover image
         type: image
         required: true
+      - name: introduction
+        label: Introduction
+        type: rich-text
 
   - name: site-settings
     label: Site settings
