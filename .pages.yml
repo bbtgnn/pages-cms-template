@@ -50,7 +50,6 @@ content:
       - name: content
         label: Content
         type: rich-text
-        required: true
 
   - name: site-settings
     label: Site settings
