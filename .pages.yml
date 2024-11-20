@@ -61,6 +61,9 @@ content:
     path: src/lib/site/about.json
     type: file
     fields:
+      - name: title
+        label: Title
+        type: string
       - name: content
         label: Content
         type: rich-text
