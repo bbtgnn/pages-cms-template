@@ -1,9 +1,10 @@
 // Auto-generated types from .pages.yml
 
 export interface HomePageContent {
-  title: string;
-  description: string;
-  cover: string;
+  hero_title: string;
+  hero_description: string;
+  hero_cover: string;
+  introduction?: any;
 }
 
 export interface SiteSettingsContent {
