@@ -27,6 +27,7 @@ content:
       - name: features
         label: Features
         type: object
+        list: true
         fields:
           - name: emoji
             label: Emoji
@@ -38,7 +39,7 @@ content:
             required: true
           - name: description
             label: Feature description
-            type: string
+            type: rich-text
             required: true
 
   - name: site-settings
