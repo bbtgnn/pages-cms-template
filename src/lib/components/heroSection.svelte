@@ -1,6 +1,7 @@
 <script lang="ts">
 	import home from '$lib/site/home.json';
 	import type { HomePageContent } from '$lib/types/generated-types';
+	import { assets } from '$app/paths';
 
 	const { hero_title, hero_description, hero_cover } = home as HomePageContent;
 </script>
@@ -8,7 +9,7 @@
 <div class="relative isolate overflow-hidden">
 	<!-- Background image -->
 	<div class="absolute inset-0 -z-10">
-		<img src={hero_cover} alt="" class="h-full w-full object-cover" />
+		<img src="{assets}/{hero_cover}" alt="" class="h-full w-full object-cover" />
 		<div class="absolute inset-0 bg-gradient-to-t from-gray-900/50"></div>
 	</div>
 
