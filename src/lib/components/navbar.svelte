@@ -10,9 +10,14 @@
 			<span class="text-sm font-semibold leading-6 text-gray-900">{settings.title}</span>
 		</div>
 		<div class="flex gap-x-8">
-			<a href="/" class="text-sm font-semibold leading-6 text-gray-900">Home</a>
-			<a href="/about" class="text-sm font-semibold leading-6 text-gray-900">About</a>
-			<a href="/docs" class="text-sm font-semibold leading-6 text-gray-900">Docs</a>
+			{#each settings.menu as item}
+				<a
+					href={item.href}
+					class="text-sm font-semibold leading-6 text-gray-900 hover:text-gray-600 transition-colors"
+				>
+					{item.label}
+				</a>
+			{/each}
 		</div>
 	</nav>
 </header>
