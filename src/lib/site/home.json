@@ -2,5 +2,12 @@
   "hero_title": "Welcome to the Pages CMS Template",
   "hero_description": "This website is a good starting point",
   "hero_cover": "/media/premium_photo-1731358673371-2a521793f27d.avif",
-  "introduction": "# A sample text that works as introduction\n\nAnd a smaller text introducing the users to the website."
+  "introduction": "# A sample text that works as introduction\n\nAnd a smaller text introducing the users to the website.",
+  "features": [
+    {
+      "emoji": "🙃",
+      "title": "Cool feature #1",
+      "description": "Feature description"
+    }
+  ]
 }
