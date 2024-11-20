@@ -24,6 +24,24 @@ content:
       - name: introduction
         label: Introduction
         type: rich-text
+      - name: features
+        label: Features
+        type: array
+        items:
+          type: object
+          fields:
+            - name: emoji
+              label: Emoji
+              type: string
+              required: true
+            - name: title
+              label: Feature title
+              type: string
+              required: true
+            - name: description
+              label: Feature description
+              type: string
+              required: true
 
   - name: site-settings
     label: Site settings

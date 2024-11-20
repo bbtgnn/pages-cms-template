@@ -5,6 +5,7 @@ export interface HomePageContent {
   hero_description: string;
   hero_cover: string;
   introduction?: any;
+  features?: any;
 }
 
 export interface SiteSettingsContent {
