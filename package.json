@@ -12,7 +12,9 @@
 		"lint": "prettier --check . && eslint .",
 		"test:unit": "vitest",
 		"test": "npm run test:unit -- --run && npm run test:e2e",
-		"test:e2e": "playwright test"
+		"test:e2e": "playwright test",
+		"vite-run": "node ./vite-run.js",
+		"generate:types": "pnpm vite-run ./src/lib/types/generate-types.ts"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
@@ -34,6 +36,7 @@
 		"typescript": "^5.0.0",
 		"typescript-eslint": "^8.0.0",
 		"vite": "^5.0.3",
+		"vite-node": "^2.1.5",
 		"vitest": "^2.0.4"
 	},
 	"dependencies": {
@@ -42,6 +45,7 @@
 		"@tailwindcss/aspect-ratio": "^0.4.2",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@tailwindcss/forms": "^0.5.9",
-		"@tailwindcss/typography": "^0.5.15"
+		"@tailwindcss/typography": "^0.5.15",
+		"yaml": "^2.6.1"
 	}
 }
