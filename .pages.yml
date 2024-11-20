@@ -42,6 +42,20 @@ content:
             type: rich-text
             required: true
 
+  - name: blog
+    label: Blog
+    path: src/lib/site/blog
+    type: collection
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: content
+        label: Content
+        type: rich-text
+        required: true
+
   - name: about
     label: About
     path: src/lib/site/about.json
@@ -66,3 +80,16 @@ content:
       - name: logo
         label: Site logo
         type: image
+      - name: menu
+        label: Navigation Menu
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Menu Label
+            type: string
+            required: true
+          - name: href
+            label: Menu Link
+            type: string
+            required: true
