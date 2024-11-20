@@ -1,38 +1,38 @@
 {
-  "hero_title": "Welcome to the Pages CMS Template",
-  "hero_description": "This website is a good starting point",
-  "hero_cover": "/media/premium_photo-1731358673371-2a521793f27d.avif",
-  "introduction": "# A sample text that works as introduction\n\nAnd a smaller text introducing the users to the website.",
-  "features": [
-    {
-      "emoji": "💬",
-      "title": "Real-time Chat",
-      "description": "Instant messaging with team members across departments and locations"
-    },
-    {
-      "emoji": "📊",
-      "title": "Analytics Dashboard",
-      "description": "Track communication patterns and team engagement with detailed insights"
-    },
-    {
-      "emoji": "🤝",
-      "title": "Team Collaboration",
-      "description": "Create spaces for teams to share ideas and work together seamlessly"
-    },
-    {
-      "emoji": "🔒",
-      "title": "Secure Communication",
-      "description": "End-to-end encryption and enterprise-grade security for your data"
-    },
-    {
-      "emoji": "🔍",
-      "title": "Smart Search",
-      "description": "Find any message, file, or conversation with powerful search capabilities"
-    },
-    {
-      "emoji": "🌐",
-      "title": "Cross-platform Access",
-      "description": "Stay connected on desktop, mobile, and web browsers"
-    }
-  ]
+	"hero_title": "Build Better Communication Systems",
+	"hero_description": "Discover the best tools and practices to enhance both internal team collaboration and external stakeholder engagement.",
+	"hero_cover": "/media/premium_photo-1731358673371-2a521793f27d.avif",
+	"introduction": "# Transform Your Organization's Communication\n\nNavigating the modern communication landscape requires the right tools and strategies. Learn how to implement effective systems that keep your team aligned internally while maintaining strong relationships with clients and partners.",
+	"features": [
+		{
+			"emoji": "🔄",
+			"title": "Internal Workflows",
+			"description": "Learn about project management tools like Asana, Jira, and Monday.com to streamline team communication"
+		},
+		{
+			"emoji": "🌟",
+			"title": "Client Communication",
+			"description": "Master CRM platforms like HubSpot and Salesforce to manage external relationships effectively"
+		},
+		{
+			"emoji": "🤝",
+			"title": "Team Collaboration",
+			"description": "Explore tools like Slack, Microsoft Teams, and Discord for real-time team coordination"
+		},
+		{
+			"emoji": "📝",
+			"title": "Documentation",
+			"description": "Implement Notion, Confluence, or GitBook to create clear, accessible knowledge bases"
+		},
+		{
+			"emoji": "🎯",
+			"title": "Project Tracking",
+			"description": "Use tools like ClickUp, Trello, and Linear to keep everyone updated on project progress"
+		},
+		{
+			"emoji": "🔍",
+			"title": "Resource Hub",
+			"description": "Access guides, tutorials, and best practices for implementing communication tools effectively"
+		}
+	]
 }
