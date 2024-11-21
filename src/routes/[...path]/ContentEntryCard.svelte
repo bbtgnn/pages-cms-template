@@ -6,8 +6,11 @@
 	// Function to create an excerpt from HTML content
 	function createExcerpt(html: string | undefined, maxLength = 150): string {
 		if (!html) return '';
-		// Remove HTML tags and get plain text
-		const text = html.replace(/<[^>]*>/g, '');
+		// Use DOM API to properly decode HTML entities and remove tags
+		const tempElement = document.createElement('div');
+		tempElement.innerHTML = html;
+		// Get plain text content with proper entity decoding
+		const text = tempElement.textContent || tempElement.innerText || '';
 		if (text.length <= maxLength) return text;
 		// Find the last space before maxLength to avoid cutting words
 		const lastSpace = text.lastIndexOf(' ', maxLength);

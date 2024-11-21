@@ -50,6 +50,7 @@
 		"@tailwindcss/typography": "^0.5.15",
 		"effect": "^3.10.15",
 		"marked": "^15.0.1",
+		"runed": "^0.15.3",
 		"yaml": "^2.6.1"
 	}
 }

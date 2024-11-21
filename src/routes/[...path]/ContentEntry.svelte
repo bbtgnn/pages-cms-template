@@ -2,10 +2,21 @@
 	import { assets } from '$app/paths';
 	import type { ContentEntry } from './+page';
 
-	//
-
 	let { entry }: { entry: ContentEntry } = $props();
-	$inspect(entry);
+
+	function formatMetadataValue(value: unknown): string {
+		if (Array.isArray(value)) {
+			return value
+				.map((item) => (typeof item === 'string' ? item : JSON.stringify(item)))
+				.join(', ');
+		}
+
+		if (typeof value === 'object' && value !== null) {
+			return JSON.stringify(value);
+		}
+
+		return String(value);
+	}
 </script>
 
 <article class="pb-10">
@@ -30,7 +41,7 @@
 			</div>
 		</div>
 	{:else if entry.title}
-		<h1 class="mb-8 text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+		<h1 class="mb-16 pt-12 text-center text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
 			{entry.title}
 		</h1>
 	{/if}
@@ -40,15 +51,7 @@
 			<dl class="mb-8 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
 				{#each Object.entries(entry.metadata) as [key, value]}
 					<dt class="font-medium uppercase tracking-wide text-gray-400">{key}</dt>
-					<dd class="text-gray-900">
-						{#if Array.isArray(value)}
-							{value.join(', ')}
-						{:else if typeof value === 'object'}
-							{JSON.stringify(value)}
-						{:else}
-							{value}
-						{/if}
-					</dd>
+					<dd class="text-gray-900">{formatMetadataValue(value)}</dd>
 				{/each}
 			</dl>
 			<hr class="mb-12 border-gray-200" />
