@@ -12,16 +12,16 @@
 	>
 		<AppLogo />
 
-		<div class="flex gap-x-8">
+		<div class="flex gap-x-4">
 			{#each settings.menu as item}
 				{@const href = base + item.href}
 				{@const isActive =
 					item.href === '/' ? $page.url.pathname === href : $page.url.pathname.startsWith(href)}
 				<a
 					{href}
-					class="text-sm font-semibold leading-6 transition-colors"
-					class:text-theme-text={!isActive}
-					class:text-theme-accent-background={isActive}
+					class="ring-accent/40 rounded-md px-3 py-2 font-semibold transition-colors hover:ring {isActive
+						? 'bg-base-content/10'
+						: ''}"
 				>
 					{item.label}
 				</a>

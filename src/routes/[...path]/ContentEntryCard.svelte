@@ -19,7 +19,7 @@
 
 <a
 	href={entry.path}
-	class="bg-base text-base-content border-base-content/10 block overflow-hidden rounded-lg border shadow-md transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg"
+	class="bg-base text-base-content border-base-content/10 hover:shadow-accent/30 broder hover:border-accent block overflow-hidden rounded-lg border shadow-md transition-transform duration-200 hover:-translate-y-1 hover:shadow-md"
 >
 	<div class="h-48 w-full">
 		{#if entry.cover}
