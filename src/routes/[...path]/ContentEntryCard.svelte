@@ -1,7 +1,7 @@
 <script lang="ts">
 	import type { ContentEntry } from './+page';
 
-	export let entry: ContentEntry;
+	let { entry }: { entry: ContentEntry } = $props();
 
 	// Function to create an excerpt from HTML content
 	function createExcerpt(html: string | undefined, maxLength = 150): string {
@@ -13,7 +13,6 @@
 		const lastSpace = text.lastIndexOf(' ', maxLength);
 		return text.substring(0, lastSpace) + '...';
 	}
-	console.log(entry.cover);
 </script>
 
 <a
