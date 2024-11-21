@@ -1,16 +1,14 @@
 <script lang="ts">
 	import type { ContentEntry } from './+page';
+	import { decode } from 'html-entities';
 
 	let { entry }: { entry: ContentEntry } = $props();
 
 	// Function to create an excerpt from HTML content
 	function createExcerpt(html: string | undefined, maxLength = 150): string {
 		if (!html) return '';
-		// Use DOM API to properly decode HTML entities and remove tags
-		const tempElement = document.createElement('div');
-		tempElement.innerHTML = html;
-		// Get plain text content with proper entity decoding
-		const text = tempElement.textContent || tempElement.innerText || '';
+		// Remove HTML tags and decode HTML entities
+		const text = decode(html.replace(/<[^>]*>/g, ''));
 		if (text.length <= maxLength) return text;
 		// Find the last space before maxLength to avoid cutting words
 		const lastSpace = text.lastIndexOf(' ', maxLength);

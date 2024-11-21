@@ -1,6 +1,9 @@
 <script lang="ts">
 	import { assets } from '$app/paths';
 	import type { ContentEntry } from './+page';
+	import settings from '$lib/site/settings.json';
+	import { page } from '$app/stores';
+	import { Store } from 'runed';
 
 	let { entry }: { entry: ContentEntry } = $props();
 
@@ -17,6 +20,12 @@
 
 		return String(value);
 	}
+
+	const pageState = new Store(page);
+	const currentPath = $derived(pageState.current.url.pathname);
+	const parentSection = $derived(
+		settings.menu.find((item) => item.href !== '/' && currentPath.startsWith(item.href))
+	);
 </script>
 
 <article class="pb-10">
@@ -46,7 +55,29 @@
 		</h1>
 	{/if}
 
+	{#if parentSection}
+		<div class="mx-auto mb-8 max-w-3xl px-6 lg:px-8">
+			<a
+				href={parentSection.href}
+				class="inline-flex items-center text-sm font-medium text-gray-500 hover:text-gray-700"
+			>
+				<svg class="-ml-1 mr-1 h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+					<path
+						fill-rule="evenodd"
+						d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+						clip-rule="evenodd"
+					/>
+				</svg>
+				Back to {parentSection.label}
+			</a>
+		</div>
+	{/if}
+
 	<div class="mx-auto max-w-3xl px-6 lg:px-8">
+		{#if parentSection}
+			<hr class="mb-12 border-gray-200" />
+		{/if}
+
 		{#if entry.metadata && Object.entries(entry.metadata).length > 0}
 			<dl class="mb-8 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
 				{#each Object.entries(entry.metadata) as [key, value]}
