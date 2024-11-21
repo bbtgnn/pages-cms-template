@@ -42,6 +42,20 @@ content:
             type: rich-text
             required: true
 
+  - name: articoli
+    label: Articoli
+    path: src/lib/site/articoli
+    type: collection
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: content
+        label: Content
+        type: rich-text
+        required: true
+
   - name: blog
     label: Blog
     path: src/lib/site/blog
