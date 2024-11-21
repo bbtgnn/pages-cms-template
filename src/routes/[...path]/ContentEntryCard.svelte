@@ -1,6 +1,7 @@
 <script lang="ts">
 	import type { ContentEntry } from './+page';
 	import { decode } from 'html-entities';
+	import { assets } from '$app/paths';
 
 	let { entry }: { entry: ContentEntry } = $props();
 
@@ -18,26 +19,30 @@
 
 <a
 	href={entry.path}
-	class="block overflow-hidden rounded-lg bg-white shadow-md transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg"
+	class="bg-base text-base-content border-base-content/10 block overflow-hidden rounded-lg border shadow-md transition-transform duration-200 hover:-translate-y-1 hover:shadow-lg"
 >
 	<div class="h-48 w-full">
 		{#if entry.cover}
 			<img
-				src={entry.cover}
+				src="{assets}{entry.cover}"
 				alt={entry.title || 'Blog post'}
 				loading="lazy"
 				class="h-full w-full object-cover"
 			/>
 		{:else}
-			<div class="h-full w-full bg-gradient-to-br from-blue-100 to-blue-200"></div>
+			<div class="bg-base-content/5 flex h-full w-full items-center justify-center">
+				<svg class="text-base-content/20 h-12 w-12" fill="currentColor" viewBox="0 0 24 24">
+					<path d="M4 4h16v16H4V4zm2 2v12h12V6H6zm5 3h2v6h-2V9zm-3 3h2v3H8v-3zm6 0h2v3h-2v-3z" />
+				</svg>
+			</div>
 		{/if}
 	</div>
 	<div class="p-4">
 		{#if entry.title}
-			<h2 class="mb-2 line-clamp-2 text-xl font-semibold text-gray-900">{entry.title}</h2>
+			<h2 class="text-theme-text mb-2 line-clamp-2 text-xl font-semibold">{entry.title}</h2>
 		{/if}
 		{#if entry.content}
-			<p class="line-clamp-3 text-sm text-gray-600">{createExcerpt(entry.content)}</p>
+			<p class="text-theme-text/75 line-clamp-3 text-sm">{createExcerpt(entry.content)}</p>
 		{/if}
 	</div>
 </a>

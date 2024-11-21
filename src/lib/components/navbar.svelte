@@ -5,20 +5,23 @@
 	import { base } from '$app/paths';
 </script>
 
-<header class=" bg-white">
-	<nav class="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
-		<div class="flex items-center gap-x-4">
-			<AppLogo />
-			<span class="text-sm font-semibold leading-6 text-gray-900">{settings.title}</span>
-		</div>
+<header class="bg-base text-base-content border-b-base-content/10 border-b">
+	<nav
+		class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 p-6 lg:px-8"
+		aria-label="Global"
+	>
+		<AppLogo />
+
 		<div class="flex gap-x-8">
 			{#each settings.menu as item}
 				{@const href = base + item.href}
+				{@const isActive =
+					item.href === '/' ? $page.url.pathname === href : $page.url.pathname.startsWith(href)}
 				<a
 					{href}
 					class="text-sm font-semibold leading-6 transition-colors"
-					class:text-gray-900={$page.url.pathname !== href}
-					class:text-blue-600={$page.url.pathname === href}
+					class:text-theme-text={!isActive}
+					class:text-theme-accent-background={isActive}
 				>
 					{item.label}
 				</a>

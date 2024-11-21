@@ -12,12 +12,14 @@
 	const currentSection = $derived(settings.menu.find((item) => item.href === currentPath)?.label);
 </script>
 
-{#if currentSection}
-	<h1 class="mx-auto mb-8 max-w-7xl px-8 text-4xl font-bold">{currentSection}</h1>
-{/if}
+<div class="text-base-content p-6 lg:px-8">
+	{#if currentSection}
+		<h1 class="mx-auto mb-8 max-w-7xl text-4xl font-bold">{currentSection}</h1>
+	{/if}
 
-<div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 p-8 sm:grid-cols-2 lg:grid-cols-3">
-	{#each entries as entry}
-		<ContentEntryCard {entry} />
-	{/each}
+	<div class="mx-auto grid max-w-7xl grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
+		{#each entries as entry}
+			<ContentEntryCard {entry} />
+		{/each}
+	</div>
 </div>

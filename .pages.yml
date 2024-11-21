@@ -3,7 +3,6 @@ media:
   output: /media
 
 content:
-  
   - name: home-page
     label: Home page
     path: src/lib/site/home.json
@@ -110,3 +109,19 @@ content:
             label: Menu Link
             type: string
             required: true
+      - name: colors
+        label: Colori
+        type: object
+        fields:
+          - name: base
+            label: Background color
+            type: string
+          - name: base-content
+            label: Text color
+            type: string
+          - name: accent
+            label: Accent background color
+            type: string
+          - name: accent-content
+            label: Accent text color
+            type: string

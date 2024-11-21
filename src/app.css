@@ -5,6 +5,6 @@
 @layer base {
 	html,
 	body {
-		@apply min-h-screen;
+		@apply bg-base min-h-screen;
 	}
 }

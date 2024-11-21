@@ -1,22 +1,28 @@
 {
-  "title": "Pages CMS Template",
-  "logo": "/media/go-to-web-icon-for-your-web-design-logo-infographic-ui-vector.jpg",
-  "menu": [
-    {
-      "label": "Home",
-      "href": "/"
-    },
-    {
-      "label": "Blog",
-      "href": "/blog"
-    },
-    {
-      "label": "About",
-      "href": "/about"
-    },
-    {
-      "label": "Articoli",
-      "href": "/articoli"
-    }
-  ]
+	"title": "Pages CMS Template",
+	"logo": "/media/go-to-web-icon-for-your-web-design-logo-infographic-ui-vector.jpg",
+	"menu": [
+		{
+			"label": "Home",
+			"href": "/"
+		},
+		{
+			"label": "Blog",
+			"href": "/blog"
+		},
+		{
+			"label": "About",
+			"href": "/about"
+		},
+		{
+			"label": "Articoli",
+			"href": "/articoli"
+		}
+	],
+	"colors": {
+		"base": "#1a1b3c",
+		"base-content": "#ffffff",
+		"accent": "#ffd700",
+		"accent-content": "#1a1b3c"
+	}
 }
