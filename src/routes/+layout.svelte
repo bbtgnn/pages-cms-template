@@ -9,7 +9,11 @@
 </script>
 
 <ParaglideJS {i18n}>
-	<Navbar />
-	{@render children()}
-	<Footer />
+	<div class="flex min-h-screen flex-col">
+		<Navbar />
+		<main class="flex-1">
+			{@render children()}
+		</main>
+		<Footer />
+	</div>
 </ParaglideJS>

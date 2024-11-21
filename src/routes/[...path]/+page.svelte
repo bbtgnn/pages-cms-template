@@ -1,21 +1,14 @@
 <script lang="ts">
 	import type { PageData } from './$types';
-	import { base } from '$app/paths';
+	import ContentEntryList from './ContentEntryList.svelte';
+	import ContentEntry from './ContentEntry.svelte';
 
 	let { data }: { data: PageData } = $props();
-	const { content, entries } = $derived(data);
+	const { entries } = $derived(data);
 </script>
 
-{#if content}
-	<pre>{JSON.stringify(content, null, 2)}</pre>
-{:else if entries}
-	<div class="space-y-2">
-		{#each entries as entry}
-			<div>
-				<a href="{base}/{entry.path}" class="text-blue-600 underline hover:text-blue-800">
-					{entry.path}
-				</a>
-			</div>
-		{/each}
-	</div>
+{#if entries.length === 1}
+	<ContentEntry entry={entries[0]} />
+{:else}
+	<ContentEntryList {entries} />
 {/if}

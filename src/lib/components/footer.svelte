@@ -3,7 +3,7 @@
 	import settings from '$lib/site/settings.json';
 </script>
 
-<footer class="bg-white">
+<footer class="bg-gray-50">
 	<div class="mx-auto max-w-7xl px-6 py-12 md:flex md:items-center md:justify-between lg:px-8">
 		<div class="flex flex-col items-start gap-4">
 			<div class="flex items-center gap-x-4">
