@@ -6,12 +6,15 @@ import path from 'path';
 import { parseYamlFrontmatter } from '../utils';
 import { flatten } from 'flat';
 import { pipe, Record, Array } from 'effect';
+import { config } from 'dotenv';
 
 //
 
 main();
 
 async function main() {
+	config();
+
 	const collections = PAGES_CMS_CONFIG.content.filter((content) => content.type === 'collection');
 	for (const content of collections) {
 		await generateCollectionCsv(content);
