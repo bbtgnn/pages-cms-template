@@ -12,6 +12,9 @@ jobs:
   build_site:
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -35,8 +38,15 @@ jobs:
           BASE_PATH: '/${{ github.event.repository.name }}'
           GITHUB_REPOSITORY: ${{ github.repository }}
           GITHUB_REF: ${{ github.ref }}
-
         run: pnpm build
+
+      - name: Commit generated files
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add -A
+          git diff --staged --quiet || git commit -m "chore: update generated files [skip ci]"
+          git push
 
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
