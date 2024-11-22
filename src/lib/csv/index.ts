@@ -51,7 +51,7 @@ async function generateCollectionCsv(contentModel: ContentModel) {
 			Record.map((value, key) => {
 				const fieldConfig = validFields.find((f) => f.name == key);
 				if (fieldConfig?.type == 'image' && typeof value == 'string') {
-					return GITHUB_RAW_URL(value);
+					return GITHUB_RAW_URL('static' + value);
 				}
 				return value;
 			}),
@@ -87,10 +87,14 @@ function isValidCsvField(field: Field): boolean {
 	return !(field?.type == 'rich-text' || field?.list == true || field?.type == 'object');
 }
 
-export const GITHUB_RAW_URL = (path: string) =>
-	[
+export const GITHUB_RAW_URL = (p: string) => {
+	return [
 		'https://raw.githubusercontent.com',
-		process.env.GITHUB_REPOSITORY,
-		process.env.GITHUB_REF,
-		path
-	].join('/');
+		process.env.GITHUB_REPOSITORY ?? '',
+		process.env.GITHUB_REF ?? '',
+		p
+	]
+		.filter(Boolean)
+		.map((s) => s.replace(/^\/+|\/+$/g, '')) // Remove leading/trailing slashes from each segment
+		.join('/');
+};
