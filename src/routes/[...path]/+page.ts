@@ -1,24 +1,25 @@
 import type { EntryGenerator } from './$types.js';
 import { Record, pipe, Array } from 'effect';
-import yaml from 'yaml';
 import { marked } from 'marked';
+import { getSiteContentLoaders } from '$lib/db/index.js';
+import { parseYamlFrontmatter } from '$root/src/lib/utils.js';
 
 //
 
 export const entries: EntryGenerator = () => {
-	return Object.keys(getSiteContent()).map((path) => ({
+	return Object.keys(getSiteContentLoaders()).map((path) => ({
 		path
 	}));
 };
 
 export const load = async ({ params }) => {
-	const siteContent = getSiteContent();
-	const matchedFiles = Record.filter(siteContent, (_, path) => path.includes(params.path));
+	const loaders = getSiteContentLoaders();
+	const matchedLoaders = Array.filter(loaders, ({ path }) => path.includes(params.path));
 
 	const entries = await pipe(
-		Record.toEntries(matchedFiles),
-		Array.map(async ([path, contentPromise]) => {
-			const fileContent = await contentPromise();
+		matchedLoaders,
+		Array.map(async ({ path, loader }) => {
+			const fileContent = await loader();
 			const data = parseYamlFrontmatter(fileContent);
 			return transformDataToContentEntry(path, data);
 		}),
@@ -39,34 +40,6 @@ export type ContentEntry = {
 	content?: string;
 	metadata?: Record<string, unknown>;
 };
-
-function getSiteContent() {
-	const siteContent = import.meta.glob('$lib/site/**', { query: '?raw', import: 'default' });
-	const siteContentFolderPath = '/src/lib/site/';
-	const exclude = ['home.json', 'settings.json'];
-
-	const entries = pipe(
-		siteContent,
-		Record.filter((_, key) => !exclude.some((e) => key.endsWith(e))),
-		Record.mapKeys((key) => key.replace(siteContentFolderPath, '').replace(/\.[^/.]+$/, ''))
-	);
-
-	// Promise<string> because we're using ?raw
-	return entries as Record<string, () => Promise<string>>;
-}
-
-function parseYamlFrontmatter(str: string): Record<string, unknown> {
-	// Remove any leading/trailing whitespace
-	const trimmed = str.trim();
-
-	// Remove the first --- and last --- (if they exist)
-	const yamlContent = trimmed
-		.replace(/^---\s*/, '') // Remove starting ---
-		.replace(/\s*---$/, ''); // Remove ending ---
-
-	// Parse the YAML content
-	return yaml.parse(yamlContent);
-}
 
 async function transformDataToContentEntry(
 	path: string,

@@ -3,7 +3,7 @@ media:
   output: /media
 
 content:
-  - name: home-page
+  - name: home
     label: Home page
     path: src/lib/site/home.json
     type: file
@@ -69,6 +69,32 @@ content:
         type: rich-text
         required: true
 
+  - name: eventi
+    label: Eventi
+    path: src/lib/site/eventi
+    type: collection
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: content
+        label: Content
+        type: rich-text
+        required: true
+      - name: cover
+        label: Cover image
+        type: image
+      - name: date
+        label: Date
+        type: string
+      - name: time
+        label: Time
+        type: string
+      - name: location
+        label: Location
+        type: string
+
   - name: about
     label: About
     path: src/lib/site/about.json
@@ -81,7 +107,7 @@ content:
         label: Content
         type: rich-text
 
-  - name: site-settings
+  - name: settings
     label: Site settings
     path: src/lib/site/settings.json
     type: file

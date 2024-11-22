@@ -16,7 +16,8 @@
 		"test": "npm run test:unit -- --run && npm run test:e2e",
 		"test:e2e": "playwright test",
 		"vite-run": "node ./vite-run.js",
-		"generate:types": "pnpm vite-run ./src/lib/types/generate-types.ts"
+		"generate:types": "pnpm vite-run ./src/lib/db/codegen.ts",
+		"generate:csv": "pnpm vite-run ./src/lib/csv/index.ts"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
@@ -49,6 +50,7 @@
 		"@tailwindcss/forms": "^0.5.9",
 		"@tailwindcss/typography": "^0.5.15",
 		"effect": "^3.10.15",
+		"flat": "^6.0.1",
 		"html-entities": "^2.5.2",
 		"marked": "^15.0.1",
 		"runed": "^0.15.3",

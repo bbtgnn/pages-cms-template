@@ -1,8 +1,7 @@
 <script lang="ts">
 	import home from '$lib/site/home.json';
-	import type { HomePageContent } from '$lib/types/generated-types';
 
-	const { features } = home as HomePageContent;
+	const { features } = home;
 </script>
 
 {#if features && features.length > 0}

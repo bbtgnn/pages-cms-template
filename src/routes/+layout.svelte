@@ -6,6 +6,8 @@
 	import Footer from '$lib/components/footer.svelte';
 
 	let { children } = $props();
+
+	import { SITE_CONTENT_INDEX } from '$lib/db/sources';
 </script>
 
 <ParaglideJS {i18n}>
