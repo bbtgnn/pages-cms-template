@@ -3,6 +3,7 @@ import { Record, pipe, Array } from 'effect';
 import { marked } from 'marked';
 import { getSiteContentLoaders } from '$lib/db/index.js';
 import { parseYamlFrontmatter } from '$root/src/lib/utils.js';
+import { SITE_FOLDER_PATH } from '$lib/db/sources.js';
 
 //
 
@@ -54,8 +55,13 @@ async function transformDataToContentEntry(
 		console.error(e);
 	}
 
+	const cleanedPath = path
+		.replace(/\.[^/.]+$/, '')
+		.replace(SITE_FOLDER_PATH, '')
+		.replace('//', '/');
+
 	return {
-		path: path.replace(/\.[^/.]+$/, ''),
+		path: cleanedPath,
 		title: title as string | undefined,
 		cover: cover as string | undefined,
 		content: htmlContent,
