@@ -11,7 +11,6 @@ concurrency:
 jobs:
   build_site:
     runs-on: ubuntu-latest
-    group: pages
 
     steps:
       - name: Checkout
@@ -48,7 +47,6 @@ jobs:
   deploy:
     needs: build_site
     runs-on: ubuntu-latest
-    group: pages
 
     permissions:
       pages: write
