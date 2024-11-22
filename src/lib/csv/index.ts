@@ -16,7 +16,7 @@ async function main() {
 	for (const content of collections) {
 		await generateCollectionCsv(content);
 	}
-	console.log(`✨ CSV files generated ✨`);
+	console.log(`✨ CSV files generated in: ${import.meta.dirname} ✨`);
 }
 
 async function generateCollectionCsv(contentModel: ContentModel) {
@@ -76,7 +76,7 @@ async function generateCollectionCsv(contentModel: ContentModel) {
 	const csvContent = [headers.join(','), ...rows].join('\n');
 
 	// Write to file
-	const csvPath = path.join(process.cwd(), 'static/csv', `${contentModel.name}.csv`);
+	const csvPath = path.join(import.meta.dirname, `${contentModel.name}.csv`);
 	fs.writeFileSync(csvPath, csvContent);
 }
 
