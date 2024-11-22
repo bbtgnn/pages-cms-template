@@ -1,4 +1,4 @@
-import { GITHUB_RAW_URL } from '$lib/utils';
+import { GITHUB_RAW_URL } from '$lib/utils.server';
 import { pipe, Record, Array } from 'effect';
 
 export const prerender = true;

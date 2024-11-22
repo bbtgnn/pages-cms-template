@@ -3,9 +3,10 @@ import { PAGES_CMS_CONFIG } from '$lib/db/sources';
 import type { ContentModel, Field } from '$lib/db/pages-cms.types';
 import fs from 'fs';
 import path from 'path';
-import { GITHUB_RAW_URL, parseYamlFrontmatter } from '$lib/utils';
+import { parseYamlFrontmatter } from '$lib/utils';
 import { flatten } from 'flat';
 import { pipe, Record, Array } from 'effect';
+import { GITHUB_RAW_URL } from '$lib/utils.server';
 
 //
 
