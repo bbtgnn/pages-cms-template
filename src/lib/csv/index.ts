@@ -16,7 +16,7 @@ async function main() {
 	for (const content of collections) {
 		await generateCollectionCsv(content);
 	}
-	console.log(`✨ CSV files generated at: ${import.meta.dirname} ✨`);
+	console.log(`✨ CSV files generated ✨`);
 }
 
 async function generateCollectionCsv(contentModel: ContentModel) {

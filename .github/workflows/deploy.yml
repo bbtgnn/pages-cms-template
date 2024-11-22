@@ -4,9 +4,15 @@ on:
   push:
     branches: 'main'
 
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
 jobs:
   build_site:
     runs-on: ubuntu-latest
+    group: pages
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -42,6 +48,7 @@ jobs:
   deploy:
     needs: build_site
     runs-on: ubuntu-latest
+    group: pages
 
     permissions:
       pages: write
