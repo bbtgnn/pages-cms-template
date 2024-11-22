@@ -76,7 +76,7 @@ async function generateCollectionCsv(contentModel: ContentModel) {
 	const csvContent = [headers.join(','), ...rows].join('\n');
 
 	// Write to file
-	const csvPath = path.join(import.meta.dirname, `${contentModel.name}.csv`);
+	const csvPath = path.join(process.cwd(), 'static/csv', `${contentModel.name}.csv`);
 	fs.writeFileSync(csvPath, csvContent);
 }
 
