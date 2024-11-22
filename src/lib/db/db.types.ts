@@ -2,6 +2,7 @@ export type Collections = {
 	home: Home;
 	articoli: Articoli;
 	blog: Blog;
+	eventi: Eventi;
 	about: About;
 	settings: Settings;
 };
@@ -19,6 +20,15 @@ export type Home = {
 export type Articoli = { title: string; content: string };
 
 export type Blog = { title: string; content: string };
+
+export type Eventi = {
+	title: string;
+	content: string;
+	cover: string;
+	date: string;
+	time: string;
+	location: string;
+};
 
 export type About = { title: string; content: string };
 
