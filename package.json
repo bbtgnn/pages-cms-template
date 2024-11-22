@@ -4,11 +4,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"predev": "pnpm generate:types",
-		"postdev": "pnpm generate:csv",
+		"predev": "pnpm generate:types && pnpm generate:csv",
 		"build": "vite build",
-		"prebuild": "pnpm generate:types",
-		"postbuild": "pnpm generate:csv",
+		"prebuild": "pnpm generate:types && pnpm generate:csv",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",

@@ -3,18 +3,15 @@ import { PAGES_CMS_CONFIG } from '$lib/db/sources';
 import type { ContentModel, Field } from '$lib/db/pages-cms.types';
 import fs from 'fs';
 import path from 'path';
-import { parseYamlFrontmatter } from '../utils';
+import { GITHUB_RAW_URL, parseYamlFrontmatter } from '$lib/utils';
 import { flatten } from 'flat';
 import { pipe, Record, Array } from 'effect';
-import { config } from 'dotenv';
 
 //
 
 main();
 
 async function main() {
-	config();
-
 	const collections = PAGES_CMS_CONFIG.content.filter((content) => content.type === 'collection');
 	for (const content of collections) {
 		await generateCollectionCsv(content);
@@ -51,7 +48,7 @@ async function generateCollectionCsv(contentModel: ContentModel) {
 			Record.map((value, key) => {
 				const fieldConfig = validFields.find((f) => f.name == key);
 				if (fieldConfig?.type == 'image' && typeof value == 'string') {
-					return GITHUB_RAW_URL('static' + value);
+					return GITHUB_RAW_URL + '/static' + value;
 				}
 				return value;
 			}),
@@ -86,15 +83,3 @@ async function generateCollectionCsv(contentModel: ContentModel) {
 function isValidCsvField(field: Field): boolean {
 	return !(field?.type == 'rich-text' || field?.list == true || field?.type == 'object');
 }
-
-export const GITHUB_RAW_URL = (p: string) => {
-	return [
-		'https://raw.githubusercontent.com',
-		process.env.GITHUB_REPOSITORY ?? '',
-		process.env.GITHUB_REF ?? '',
-		p
-	]
-		.filter(Boolean)
-		.map((s) => s.replace(/^\/+|\/+$/g, '')) // Remove leading/trailing slashes from each segment
-		.join('/');
-};
