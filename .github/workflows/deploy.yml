@@ -28,8 +28,8 @@ jobs:
       - name: build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
-          GITHUB_REPOSITORY: $GITHUB_REPOSITORY
-          GITHUB_REF: $GITHUB_REF
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          GITHUB_REF: ${{ github.ref }}
 
         run: pnpm build
 
