@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { marked } from 'marked';
-	import { assets } from '$app/paths';
+	import { assets, base } from '$app/paths';
 	import Prose from '$lib/components/Prose.svelte';
 	import type { ContentEntry } from './+page';
 	import settings from '$lib/site/settings.json';
@@ -44,7 +44,7 @@
 					class="absolute inset-0 h-full w-full object-cover"
 				/>
 				<div
-					class="from-base-content/75 via-base-content/50 absolute inset-0 bg-gradient-to-t"
+					class="absolute inset-0 bg-gradient-to-t from-base-content/75 via-base-content/50"
 				></div>
 			</div>
 			<div class="absolute inset-0 flex items-center justify-center px-6 sm:px-12">
@@ -68,7 +68,7 @@
 		</div>
 
 		<h1
-			class="text-base-content px-6 pb-16 pt-8 text-center text-4xl font-bold tracking-tight sm:text-6xl lg:px-8"
+			class="px-6 pb-16 pt-8 text-center text-4xl font-bold tracking-tight text-base-content sm:text-6xl lg:px-8"
 		>
 			{entry.title}
 		</h1>
@@ -83,7 +83,7 @@
 			{#if entry.metadata && Object.entries(entry.metadata).length > 0}
 				<dl class="mb-8 grid grid-cols-[auto_1fr] gap-x-6 gap-y-2 text-sm">
 					{#each Object.entries(entry.metadata) as [key, value]}
-						<dt class="text-base-content/60 font-medium uppercase tracking-wide">{key}</dt>
+						<dt class="font-medium uppercase tracking-wide text-base-content/60">{key}</dt>
 						<dd class="text-base-content">{formatMetadataValue(value)}</dd>
 					{/each}
 				</dl>
@@ -100,8 +100,8 @@
 {#snippet backlink()}
 	{#if parentSection}
 		<a
-			href={parentSection.href}
-			class="bg-base-content/5 text-base-content hover:bg-base-content/10 inline-flex items-center rounded-md border px-4 py-2 transition-colors"
+			href="{base}{parentSection.href}"
+			class="inline-flex items-center rounded-md border bg-base-content/5 px-4 py-2 text-base-content transition-colors hover:bg-base-content/10"
 		>
 			<svg
 				class="mr-2 h-4 w-4"
