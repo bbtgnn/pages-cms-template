@@ -100,7 +100,7 @@
 {#snippet backlink()}
 	{#if parentSection}
 		<a
-			href="{base}{parentSection.href}"
+			href={base + parentSection.href}
 			class="inline-flex items-center rounded-md border bg-base-content/5 px-4 py-2 text-base-content transition-colors hover:bg-base-content/10"
 		>
 			<svg

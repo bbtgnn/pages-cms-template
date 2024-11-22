@@ -18,8 +18,8 @@
 </script>
 
 <a
-	href="{base}{entry.path}"
-	class="broder block overflow-hidden rounded-lg border border-base-content/10 bg-base text-base-content shadow-md transition-transform duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-md hover:shadow-accent/30"
+	href={base + entry.path}
+	class="block overflow-hidden rounded-lg border border-base-content/10 bg-base text-base-content shadow-md transition-transform duration-200 hover:-translate-y-1 hover:border-accent hover:shadow-md hover:shadow-accent/30"
 >
 	<div class="h-48 w-full">
 		{#if entry.cover}
