@@ -55,7 +55,7 @@ async function transformDataToContentEntry(
 	}
 
 	return {
-		path,
+		path: path.replace(/\.[^/.]+$/, ''),
 		title: title as string | undefined,
 		cover: cover as string | undefined,
 		content: htmlContent,
