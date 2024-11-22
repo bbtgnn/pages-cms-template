@@ -28,6 +28,9 @@ jobs:
       - name: build
         env:
           BASE_PATH: '/${{ github.event.repository.name }}'
+          GITHUB_REPOSITORY: $GITHUB_REPOSITORY
+          GITHUB_REF: $GITHUB_REF
+
         run: pnpm build
 
       - name: Upload Artifacts
