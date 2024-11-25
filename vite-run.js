@@ -32,6 +32,10 @@ async function run(script) {
 	} catch (error) {
 		console.error(`Error executing script: ${script}`);
 		console.error(error);
+		console.log();
+		console.error(
+			"Please note that if you are running a script with dependencies, all of these dependencies and their sub-dependencies must not import SvelteKit's `$env` or `$app` modules"
+		);
 	} finally {
 		if (server) await server.close();
 	}
