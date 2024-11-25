@@ -4,8 +4,7 @@
 	import Prose from '$lib/components/Prose.svelte';
 	import type { ContentEntry } from './+page';
 	import settings from '$lib/site/settings.json';
-	import { page } from '$app/stores';
-	import { Store } from 'runed';
+	import { PageState } from '$root/src/lib/utils.svelte';
 
 	let { entry }: { entry: ContentEntry } = $props();
 
@@ -25,11 +24,13 @@
 		return String(value);
 	}
 
-	const pageState = new Store(page);
-	const currentPath = $derived(base + pageState.current.url.pathname);
+	const pageState = new PageState();
 	const parentSection = $derived(
 		settings.menu.find(
-			(item) => item.href !== '/' && currentPath.includes(item.href) && currentPath !== item.href
+			(item) =>
+				item.href !== '/' &&
+				pageState.rawPathname.includes(item.href) &&
+				pageState.rawPathname !== item.href
 		)
 	);
 </script>

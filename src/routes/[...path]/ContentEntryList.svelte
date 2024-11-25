@@ -2,15 +2,14 @@
 	import type { ContentEntry } from './+page';
 	import ContentEntryCard from './ContentEntryCard.svelte';
 	import settings from '$lib/site/settings.json';
-	import { page } from '$app/stores';
-	import { Store } from 'runed';
-	import { base } from '$app/paths';
+	import { PageState } from '$root/src/lib/utils.svelte';
 
 	let { entries }: { entries: ContentEntry[] } = $props();
 
-	const pageState = new Store(page);
-	const currentPath = $derived(base + pageState.current.url.pathname);
-	const currentSection = $derived(settings.menu.find((item) => item.href === currentPath)?.label);
+	const pageState = new PageState();
+	const currentSection = $derived(
+		settings.menu.find((item) => item.href === pageState.rawPathname)?.label
+	);
 </script>
 
 <div class="px-6 py-12 text-base-content lg:px-8">
