@@ -37,7 +37,7 @@ async function generateCollectionCsv(contentModel: ContentModel) {
 	// Getting content
 	const collectionEntries = await pipe(
 		getSiteContentLoaders(),
-		Array.filter((loader) => loader.path.includes(contentModel.path)),
+		Array.filter((loader) => loader.filePath.includes(contentModel.path)),
 		Array.map(({ loader }) => loader()),
 		(entries) => Promise.all(entries)
 	);

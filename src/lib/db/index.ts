@@ -1,11 +1,12 @@
 import { Record, pipe, Array } from 'effect';
-import { SITE_CONTENT_INDEX } from './sources';
+import { SITE_CONTENT_INDEX, SITE_FOLDER_PATH } from './sources';
 
 //
 
 type ContentLoader = {
-	path: string;
+	filePath: string;
 	loader: () => Promise<string>;
+	urlPathname: string;
 };
 
 export function getSiteContentLoaders(): ContentLoader[] {
@@ -18,9 +19,13 @@ export function getSiteContentLoaders(): ContentLoader[] {
 
 	return pipe(
 		Record.toEntries(entries),
-		Array.map(([path, loader]) => ({
-			path,
-			loader
+		Array.map(([filePath, loader]) => ({
+			loader,
+			filePath,
+			urlPathname: filePath
+				.replace(/\.[^/.]+$/, '')
+				.replace(SITE_FOLDER_PATH, '')
+				.replace('//', '/')
 		}))
 	);
 }

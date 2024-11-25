@@ -2,27 +2,28 @@ import type { EntryGenerator } from './$types.js';
 import { Record, pipe, Array } from 'effect';
 import { marked } from 'marked';
 import { getSiteContentLoaders } from '$lib/db/index.js';
-import { parseYamlFrontmatter } from '$root/src/lib/utils.js';
-import { SITE_FOLDER_PATH } from '$lib/db/sources.js';
+import { parseYamlFrontmatter } from '$lib/utils.js';
 
 //
 
 export const entries: EntryGenerator = () => {
-	return Object.keys(getSiteContentLoaders()).map((path) => ({
-		path
+	return Object.values(getSiteContentLoaders()).map(({ urlPathname }) => ({
+		path: urlPathname.slice(1)
 	}));
 };
 
 export const load = async ({ params }) => {
 	const loaders = getSiteContentLoaders();
-	const matchedLoaders = Array.filter(loaders, ({ path }) => path.includes(params.path));
+	const matchedLoaders = Array.filter(loaders, ({ urlPathname }) =>
+		urlPathname.includes(params.path)
+	);
 
 	const entries = await pipe(
 		matchedLoaders,
-		Array.map(async ({ path, loader }) => {
+		Array.map(async ({ urlPathname, loader }) => {
 			const fileContent = await loader();
 			const data = parseYamlFrontmatter(fileContent);
-			return transformDataToContentEntry(path, data);
+			return transformDataToContentEntry(urlPathname, data);
 		}),
 		(entries) => Promise.all(entries)
 	);
@@ -55,13 +56,8 @@ async function transformDataToContentEntry(
 		console.error(e);
 	}
 
-	const cleanedPath = path
-		.replace(/\.[^/.]+$/, '')
-		.replace(SITE_FOLDER_PATH, '')
-		.replace('//', '/');
-
 	return {
-		path: cleanedPath,
+		path,
 		title: title as string | undefined,
 		cover: cover as string | undefined,
 		content: htmlContent,
