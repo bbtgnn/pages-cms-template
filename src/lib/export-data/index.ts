@@ -14,10 +14,11 @@ main();
 
 async function main() {
 	const collections = PAGES_CMS_CONFIG.content.filter((content) => content.type === 'collection');
-	for (const content of collections) {
-		await generateCollectionCsv(content);
+	for (const contentCollection of collections) {
+		await generateCollectionCsv(contentCollection);
+		await generateCollectionJson(contentCollection);
 	}
-	console.log(`✨ CSV files generated in: ${import.meta.dirname} ✨`);
+	console.log(`✨ CSV and JSON files generated in: ${import.meta.dirname} ✨`);
 }
 
 async function generateCollectionCsv(contentModel: ContentModel) {
@@ -83,4 +84,37 @@ async function generateCollectionCsv(contentModel: ContentModel) {
 
 function isValidCsvField(field: Field): boolean {
 	return !(field?.type == 'rich-text' || field?.list == true || field?.type == 'object');
+}
+
+//
+
+async function generateCollectionJson(contentModel: ContentModel) {
+	const collectionEntries = await pipe(
+		getSiteContentLoaders(),
+		Array.filter((loader) => loader.filePath.includes(contentModel.path)),
+		Array.map(({ loader }) => loader()),
+		(entries) => Promise.all(entries)
+	);
+
+	const jsonEntries = collectionEntries.map((content) =>
+		pipe(
+			parseYamlFrontmatter(content),
+			// Map image fields to paths
+			Record.map((value, key) => {
+				const fieldConfig = contentModel.fields.find((f) => f.name == key);
+				if (fieldConfig?.type == 'image' && typeof value == 'string') {
+					return GITHUB_RAW_URL + '/static' + value;
+				}
+				return value;
+			}),
+			(record) => flatten(record) as Record<string, unknown>
+		)
+	);
+
+	// Combine headers and rows
+	const jsonContent = JSON.stringify(jsonEntries, null, 4);
+
+	// Write to file
+	const jsonPath = path.join(import.meta.dirname, `${contentModel.name}.json`);
+	fs.writeFileSync(jsonPath, jsonContent);
 }

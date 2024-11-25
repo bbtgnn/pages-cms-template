@@ -4,9 +4,9 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"predev": "pnpm generate:types && pnpm generate:csv",
+		"predev": "pnpm generate:types && pnpm generate:data",
 		"build": "vite build",
-		"prebuild": "pnpm generate:types && pnpm generate:csv",
+		"prebuild": "pnpm generate:types && pnpm generate:data",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -17,7 +17,7 @@
 		"test:e2e": "playwright test",
 		"vite-run": "node ./vite-run.js",
 		"generate:types": "pnpm vite-run ./src/lib/db/codegen.ts",
-		"generate:csv": "pnpm vite-run ./src/lib/csv/index.ts"
+		"generate:data": "pnpm vite-run ./src/lib/export-data/index.ts"
 	},
 	"devDependencies": {
 		"@playwright/test": "^1.45.3",
