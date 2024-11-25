@@ -4,15 +4,16 @@
 	import settings from '$lib/site/settings.json';
 	import { page } from '$app/stores';
 	import { Store } from 'runed';
+	import { base } from '$app/paths';
 
 	let { entries }: { entries: ContentEntry[] } = $props();
 
 	const pageState = new Store(page);
-	const currentPath = $derived(pageState.current.url.pathname);
+	const currentPath = $derived(base + pageState.current.url.pathname);
 	const currentSection = $derived(settings.menu.find((item) => item.href === currentPath)?.label);
 </script>
 
-<div class="text-base-content px-6 py-12 lg:px-8">
+<div class="px-6 py-12 text-base-content lg:px-8">
 	{#if currentSection}
 		<h1 class="mx-auto mb-10 max-w-7xl text-4xl font-bold">{currentSection}</h1>
 	{/if}

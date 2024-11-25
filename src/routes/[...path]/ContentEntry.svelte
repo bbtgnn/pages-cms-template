@@ -26,7 +26,7 @@
 	}
 
 	const pageState = new Store(page);
-	const currentPath = $derived(pageState.current.url.pathname);
+	const currentPath = $derived(base + pageState.current.url.pathname);
 	const parentSection = $derived(
 		settings.menu.find(
 			(item) => item.href !== '/' && currentPath.includes(item.href) && currentPath !== item.href
