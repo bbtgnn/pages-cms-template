@@ -6,5 +6,9 @@
     {
         "title": "Best Practices nello Sviluppo Web Moderno",
         "content": "Lo sviluppo web moderno richiede un approccio strutturato e attento alle best practices. Ecco una guida essenziale per creare applicazioni web robuste e performanti.\n\n\n## Performance First\n\n\n### 1. Ottimizzazione delle Immagini\n\n- Utilizzare formati moderni come WebP\n- Implementare il lazy loading\n- Fornire dimensioni appropriate per diversi dispositivi\n\n\n### 2. Gestione del JavaScript\n\n- Minimizzare il bundle size\n- Utilizzare il code splitting\n- Implementare il tree shaking\n\n\n## Accessibilità\n\n\n### 1. Struttura Semantica\n\n- Utilizzare tag HTML semantici appropriati\n- Implementare ARIA labels dove necessario\n- Assicurare una corretta gerarchia degli heading\n\n\n### 2. Design Inclusivo\n\n- Mantenere un contrasto sufficiente\n- Supportare la navigazione da tastiera\n- Testare con screen reader\n\n\n## Sicurezza\n\n\n### 1. Best Practices di Base\n\n- Implementare HTTPS\n- Sanitizzare gli input utente\n- Proteggere contro XSS e CSRF\n\n\n### 2. Gestione dei Dati\n\n- Utilizzare storage sicuro\n- Implementare autenticazione robusta\n- Seguire il principio del minimo privilegio\n\n\n> \"La sicurezza non è mai un prodotto, ma un processo.\" - Bruce Schneier\n"
+    },
+    {
+        "title": "Articolo di introduzione",
+        "content": "ciao a tutt"
     }
 ]
