@@ -55,20 +55,6 @@ content:
         type: rich-text
         required: true
 
-  - name: blog
-    label: Blog
-    path: src/lib/site/blog
-    type: collection
-    fields:
-      - name: title
-        label: Title
-        type: string
-        required: true
-      - name: content
-        label: Content
-        type: rich-text
-        required: true
-
   - name: eventi
     label: Eventi
     path: src/lib/site/eventi
