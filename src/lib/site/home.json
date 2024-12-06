@@ -1,38 +1,38 @@
 {
-	"hero_title": "Build Better Communication Systems",
-	"hero_description": "Discover the best tools and practices to enhance both internal team collaboration and external stakeholder engagement.",
-	"hero_cover": "/media/premium_photo-1731358673371-2a521793f27d.avif",
-	"introduction": "# Transform Your Organization's Communication\n\nNavigating the modern communication landscape requires the right tools and strategies. Learn how to implement effective systems that keep your team aligned internally while maintaining strong relationships with clients and partners.",
-	"features": [
-		{
-			"emoji": "🔄",
-			"title": "Internal Workflows",
-			"description": "Learn about project management tools like Asana, Jira, and Monday.com to streamline team communication"
-		},
-		{
-			"emoji": "🌟",
-			"title": "Client Communication",
-			"description": "Master CRM platforms like HubSpot and Salesforce to manage external relationships effectively"
-		},
-		{
-			"emoji": "🤝",
-			"title": "Team Collaboration",
-			"description": "Explore tools like Slack, Microsoft Teams, and Discord for real-time team coordination"
-		},
-		{
-			"emoji": "📝",
-			"title": "Documentation",
-			"description": "Implement Notion, Confluence, or GitBook to create clear, accessible knowledge bases"
-		},
-		{
-			"emoji": "🎯",
-			"title": "Project Tracking",
-			"description": "Use tools like ClickUp, Trello, and Linear to keep everyone updated on project progress"
-		},
-		{
-			"emoji": "🔍",
-			"title": "Resource Hub",
-			"description": "Access guides, tutorials, and best practices for implementing communication tools effectively"
-		}
-	]
+  "hero_title": "Ciao a tutti*",
+  "hero_description": "Discover the best tools and practices to enhance both internal team collaboration and external stakeholder engagement.",
+  "hero_cover": "/media/premium_photo-1731358673371-2a521793f27d.avif",
+  "introduction": "# Transform Your Organization's Communication\n\nNavigating the modern communication landscape requires the right tools and strategies. Learn how to implement effective systems that keep your team aligned internally while maintaining strong relationships with clients and partners.",
+  "features": [
+    {
+      "emoji": "🔄",
+      "title": "Internal Workflows",
+      "description": "Learn about project management tools like Asana, Jira, and Monday.com to streamline team communication"
+    },
+    {
+      "emoji": "🌟",
+      "title": "Client Communication",
+      "description": "Master CRM platforms like HubSpot and Salesforce to manage external relationships effectively"
+    },
+    {
+      "emoji": "🤝",
+      "title": "Team Collaboration",
+      "description": "Explore tools like Slack, Microsoft Teams, and Discord for real-time team coordination"
+    },
+    {
+      "emoji": "📝",
+      "title": "Documentation",
+      "description": "Implement Notion, Confluence, or GitBook to create clear, accessible knowledge bases"
+    },
+    {
+      "emoji": "🎯",
+      "title": "Project Tracking",
+      "description": "Use tools like ClickUp, Trello, and Linear to keep everyone updated on project progress"
+    },
+    {
+      "emoji": "🔍",
+      "title": "Resource Hub",
+      "description": "Access guides, tutorials, and best practices for implementing communication tools effectively"
+    }
+  ]
 }
